@@ -17,6 +17,12 @@
 </head>
 
 <body>
+    <script>
+        // Apply the saved theme before paint so it doesn't flash dark on navigation
+        if (localStorage.getItem('webspace-theme') === 'light') {
+            document.body.classList.add('theme-light');
+        }
+    </script>
     <!-- Cosmic Background Canvas -->
     <canvas id="electric-bg"></canvas>
 

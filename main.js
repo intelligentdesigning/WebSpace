@@ -117,8 +117,17 @@ function initThemeExplosion(bgInstance) {
     novaFlash.id = 'nova-flash';
     document.body.appendChild(novaFlash);
 
-    let isLight = false;
+    const THEME_KEY = 'webspace-theme';
+    let isLight = localStorage.getItem(THEME_KEY) === 'light';
     let busy = false;
+
+    // Restore the saved theme on load so the choice survives page navigation
+    if (isLight) {
+        document.body.classList.add('theme-light');
+        if (bgInstance && bgInstance.setTheme) {
+            bgInstance.setTheme(true);
+        }
+    }
 
     toggleBtn.addEventListener('click', () => {
         if (busy) return; // ignore rapid re-clicks mid-explosion
@@ -159,6 +168,7 @@ function initThemeExplosion(bgInstance) {
         setTimeout(() => {
             isLight = !isLight;
             document.body.classList.toggle('theme-light', isLight);
+            localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
             if (bgInstance && bgInstance.setTheme) {
                 bgInstance.setTheme(isLight);
             }
