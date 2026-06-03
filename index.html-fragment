@@ -1,0 +1,14 @@
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="/" class="header__nav-link active">Home</a></li>
+            <li><a href="/pricing.html" class="header__nav-link">Pricing</a></li>
+            <li><a href="/contact.html" class="header__nav-link">Contact</a></li>
+          </ul>
+          
+          <!-- Explosion Toggle Switch -->
+          <button id="theme-explode" class="theme-toggle" aria-label="Toggle Light Mode">
+             <span class="toggle-icon">⚡</span>
+          </button>
+          
+          <a href="#get-started" class="btn btn--primary btn--sm">Get started</a>
+        </nav>
